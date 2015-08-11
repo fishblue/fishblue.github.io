@@ -5,32 +5,32 @@
   
   <title>webx框架初始化主线之--webxContextLoaderListener | Fishblue&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。本系列文章主要记录本人学习webx框架的一些心得，废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎指正！
+  <meta name="description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎拍砖！
 
 前言　　webx框架的原理，笔者把按照两条主线来进行介绍。也是web开发之中通用的两条主线：初始化主线和请求处理主线。
 
-初始化主线：顾名思义，在web容器开始">
+初始化主线：顾名思义，在web容器开始接受请求之前首先要启动容器并作一定的前期工作，该主">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webx框架初始化主线之--webxContextLoaderListener">
 <meta property="og:url" content="https://github.com/fishblue/2015/08/07/webx框架初始化主线之-webxContextLoaderListener/index.html">
 <meta property="og:site_name" content="Fishblue's Blog">
-<meta property="og:description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。本系列文章主要记录本人学习webx框架的一些心得，废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎指正！
+<meta property="og:description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎拍砖！
 
 前言　　webx框架的原理，笔者把按照两条主线来进行介绍。也是web开发之中通用的两条主线：初始化主线和请求处理主线。
 
-初始化主线：顾名思义，在web容器开始">
+初始化主线：顾名思义，在web容器开始接受请求之前首先要启动容器并作一定的前期工作，该主">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/1.jpg">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/2.jpg">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/3.jpg">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/4.jpg">
-<meta property="og:updated_time" content="2015-08-11T04:03:35.991Z">
+<meta property="og:updated_time" content="2015-08-11T04:55:01.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webx框架初始化主线之--webxContextLoaderListener">
-<meta name="twitter:description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。本系列文章主要记录本人学习webx框架的一些心得，废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎指正！
+<meta name="twitter:description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎拍砖！
 
 前言　　webx框架的原理，笔者把按照两条主线来进行介绍。也是web开发之中通用的两条主线：初始化主线和请求处理主线。
 
-初始化主线：顾名思义，在web容器开始">
+初始化主线：顾名思义，在web容器开始接受请求之前首先要启动容器并作一定的前期工作，该主">
   
     <link rel="alternative" href="/atom.xml" title="Fishblue&#39;s Blog" type="application/atom+xml">
   
@@ -243,7 +243,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p><em>上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。本系列文章主要记录本人学习webx框架的一些心得，废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎指正！</em></p>
+<p><em>上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎拍砖！</em></p>
 </blockquote>
 <h4 id="前言"><strong>前言</strong></h4><p>　　webx框架的原理，笔者把按照两条主线来进行介绍。也是web开发之中通用的两条主线：初始化主线和请求处理主线。</p>
 <ul>
