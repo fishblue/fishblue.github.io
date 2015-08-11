@@ -224,7 +224,7 @@
 <li>初始化主线：顾名思义，在web容器开始接受请求之前首先要启动容器并作一定的前期工作，该主线主要简单的从webx框架的启动流程，以及资源加载解析的方面做介绍。</li>
 <li>请求处理主线：处理前台发起的request，是web程序的通性。按照如何对request进行control，然后或者处理或者重定向，最终返回结果的设计思路，可以区分不同框架。该主线，主要分析从前台request进入后台容器之后，框架做的一系列处理。</li>
 </ul>
-<h4 id="Tomcat启动与web-xml的解析"><strong>Tomcat启动与web.xml的解析</strong></h4><p>　　绝大多数的web程序都依赖于容器,webx底层基于java servlet而实现，故而必然依赖于Servlet容器。这里的servlet容器使用的是Ali-Tomcat。Ali-Tomcat介绍，戳这里<a href="http://tomcat.alibaba-inc.com" target="_blank" rel="external">tomcat.alibaba-inc.com</a></p>
+<h4 id="Tomcat启动与web-xml的解析"><strong>Tomcat启动与web.xml的解析</strong></h4><p>　　绝大多数的web程序都依赖于容器,webx底层基于java servlet而实现，故而必然依赖于Servlet容器。这里的servlet容器使用的是Ali-Tomcat。Ali-Tomcat介绍，戳这里<a href="http://tomcat.alibaba-inc.com">tomcat.alibaba-inc.com</a></p>
 <h5 id="Tomcat组件与启动流程"><strong>Tomcat组件与启动流程</strong></h5><p>　　先大致了解下Tomcat的几个组件，参见（conf/server.xml）;</p>
 <ul>
 <li>Server组件<ul>
@@ -237,33 +237,6 @@
 </li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Service</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">Executor</span> <span class="attribute">name</span>=<span class="value">"tomcatThreadPool"</span> <span class="attribute">namePrefix</span>=<span class="value">"catalina-exec- "</span><span class="value">maxThreads="150"</span> <span class="attribute">minSpareThreads</span>=<span class="value">"4"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--最常用的连接器，接受来自http的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"80"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span> <span class="attribute">connectionTimeout</span>=<span class="value">"15000"</span> <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">maxParameterCount</span>=<span class="value">"1000"</span> <span class="attribute">maxThreads</span>=<span class="value">"250"</span> <span class="attribute">maxPostSize</span>=<span class="value">"2097152"</span> <span class="attribute">acceptCount</span>=<span class="value">"200"</span> <span class="attribute">useBodyEncodingForURI</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Engine</span>&gt;</span><span class="tag">&lt;/<span class="title">Engine</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Service</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>Connector组件<ul>
-<li>接受来自不同方向的请求，完成与请求方的链接建立：Http请求是web项目中最主要的请求。</li>
-</ul>
-</li>
-<li>Engine组件<ul>
-<li>包含了若干个用来处理请求的接入点。Engine分析请求头然后将请求发送给合适的Host。利用engine的特性，可以通过jvmRoute实现网站的负载均衡。</li>
-</ul>
-</li>
-<li>Host组件<ul>
-<li>虚拟主机，表示了Tomcat角度的主机。每个主机可以有多个不同URL的项目（Context）,</li>
-</ul>
-</li>
-</ul>
-<p>全局的Context配置参见conf/context.xml：可以知道web项目的默认入口是web.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Context</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 默认的web项目程序入口 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">WatchedResource</span>&gt;</span>WEB-INF/web.xml<span class="tag">&lt;/<span class="title">WatchedResource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Context</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="web-xml元素定义与功能"><strong>web.xml元素定义与功能</strong></h5><p>　　既然知道了，web.xml为项目的入口，那么我们看一下在webx框架之中的web.xml。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="GBK" ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">web-app</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 监听器配置 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">listener</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">listener-class</span>&gt;</span></span><br><span class="line">			com.alibaba.citrus.webx.context.WebxContextLoaderListener</span><br><span class="line">		<span class="tag">&lt;/<span class="title">listener-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">listener</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--过滤器声明l--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">filter</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>webx<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">filter-class</span>&gt;</span></span><br><span class="line">			com.alibaba.citrus.webx.servlet.WebxFrameworkFilter</span><br><span class="line">	    <span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--过滤器配置，拦截符合正则表达式的url--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>webx<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--错误配置--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">error-page</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">error-code</span>&gt;</span>400<span class="tag">&lt;/<span class="title">error-code</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">location</span>&gt;</span>/error.jsp<span class="tag">&lt;/<span class="title">location</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">error-page</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>　　web.xml中包含了Servlet，Filter,Listener三类主要的响应处理标签。三者的用途，就不在多说了。在Servlet容器中三者的启动顺序为：Listener &gt; Filter &gt; Servlet。接下来我们来看WebxContextoaderListener</p>
-<h4 id="WebxContextoaderListener"><strong>WebxContextoaderListener</strong></h4><p>　　上面说到了web.xml中的Servlet，Filter,Listener启动顺序为Listener &gt; Filter &gt; Servlet。我们可以知道Listener（即WebxContextLoaderListener）首先被初始化。看下图<br><img src="/img/post_source/201508/1.jpg" alt="webcontextloaderListener_"></p>
-<p>　　如上图所示，WebxContextLoaderListener继承自实现了ServletContextListener接口的ContextLoaderListener。当容器启动，触发ServletContextEvent，导致ContextLoaderListener.contextInitialized()方法被调用完成初始化。</p>
-<p>　　部分类之间的关系如下图所示：<br><img src="/img/post_source/201508/2.jpg" alt="_"></p>
-<p>　　其中导火线是WebxContextoaderListener，除此之外的关键类webxComponentsLoader是对spring自身的上下文加载器ContextLoader的丰富和扩展。此类调用父类接口创建WebApplicationContext，完成最终的初始化。<br><strong>低调装逼英文看不懂版</strong>序列图如下：<br><img src="/img/post_source/201508/3.jpg" alt="_"></p>
-<p><strong>屌丝不装逼中文秒懂版</strong>序列图如下：<br><img src="/img/post_source/201508/4.jpg" alt="_"></p>
-<p>　　首先，服务器开始初始化，将各种Listeners加入观察者队列，WebxContextoaderListener创建webxContextLoader。服务器开始启动时，触发ServletContextEvent事件，导致WebxContextoaderListener调用初始化方法，调用WebxComponentLoader的初始化方法，在webxcomponentloader的初始化方法中，springframework.ContextLoader创建WebApplicationContext（这一步发生了好多事，以后单独一章说说）。最终初始化终于完成了。</p>
-<p>　　每一个web项目对应一个WebApplicationContext和一个独立的classLoader。二者以ConcurrentHashMap存储。</p>
-<h5 id="Listener中的观察者模式"><strong>Listener中的观察者模式</strong></h5><p>　　web.xml中的listener是基于观察者模式的。服务器启动将所有的Listener加入一个观察者队列，当启动事件发生时，触发初始化方法。具体设计模式，自行补充。</p>
-<h4 id="总结"><strong>总结</strong></h4><p>　　本文描述了监听器监听并创建web应用上下文的的流程，在WebApplicationContext创建过程中，没有做具体的流程描述，在WebApplicationContext创建以及初始化过程之中，使用了由对spring的bean管理进行扩展后的springext丰富了xml的标签定义。如果有机会，会单独写一篇关于这一部分的文章。</p>
-
       
     </div>
     
@@ -276,6 +249,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/07/webx框架初始化主线之-webxContextLoaderListener/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
