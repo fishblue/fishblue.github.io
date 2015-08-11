@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/2.jpg">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/3.jpg">
 <meta property="og:image" content="https://github.com/fishblue/img/post_source/201508/4.jpg">
-<meta property="og:updated_time" content="2015-08-11T03:46:45.137Z">
+<meta property="og:updated_time" content="2015-08-11T04:03:35.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webx框架初始化主线之--webxContextLoaderListener">
 <meta name="twitter:description" content="上一篇主要介绍了webx框架的项目管理工具maven及AutoConfig插件，这些工具可以让我们的开发更加的灵活。本系列文章主要记录本人学习webx框架的一些心得，废话不多说，接下来切入webx框架的正题之中。纯属个人理解，欢迎指正！
@@ -250,7 +250,7 @@
 <li>初始化主线：顾名思义，在web容器开始接受请求之前首先要启动容器并作一定的前期工作，该主线主要简单的从webx框架的启动流程，以及资源加载解析的方面做介绍。</li>
 <li>请求处理主线：处理前台发起的request，是web程序的通性。按照如何对request进行control，然后或者处理或者重定向，最终返回结果的设计思路，可以区分不同框架。该主线，主要分析从前台request进入后台容器之后，框架做的一系列处理。</li>
 </ul>
-<h4 id="Tomcat启动与web-xml的解析"><strong>Tomcat启动与web.xml的解析</strong></h4><p>　　绝大多数的web程序都依赖于容器,webx底层基于java servlet而实现，故而必然依赖于Servlet容器。这里的servlet容器使用的是Ali-Tomcat。Ali-Tomcat介绍，戳这里<a href="http://tomcat.alibaba-inc.com" target="_blank" rel="external">tomcat.alibaba-inc.com</a></p>
+<h4 id="Tomcat启动与web-xml的解析"><strong>Tomcat启动与web.xml的解析</strong></h4><p>　　绝大多数的web程序都依赖于容器,webx底层基于java servlet而实现，故而必然依赖于Servlet容器。这里的servlet容器使用的是Ali-Tomcat。Ali-Tomcat介绍，戳这里<a href="http://tomcat.alibaba-inc.com" target="_blank" rel="external">tomcat.alibaba-inc.com</a><br><a id="more"></a></p>
 <h5 id="Tomcat组件与启动流程"><strong>Tomcat组件与启动流程</strong></h5><p>　　先大致了解下Tomcat的几个组件，参见（conf/server.xml）;</p>
 <ul>
 <li>Server组件<ul>
@@ -263,7 +263,6 @@
 </li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Service</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="title">Executor</span> <span class="attribute">name</span>=<span class="value">"tomcatThreadPool"</span> <span class="attribute">namePrefix</span>=<span class="value">"catalina-exec- "</span><span class="value">maxThreads="150"</span> <span class="attribute">minSpareThreads</span>=<span class="value">"4"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--最常用的连接器，接受来自http的请求--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"80"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span> <span class="attribute">connectionTimeout</span>=<span class="value">"15000"</span> <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">maxParameterCount</span>=<span class="value">"1000"</span> <span class="attribute">maxThreads</span>=<span class="value">"250"</span> <span class="attribute">maxPostSize</span>=<span class="value">"2097152"</span> <span class="attribute">acceptCount</span>=<span class="value">"200"</span> <span class="attribute">useBodyEncodingForURI</span>=<span class="value">"true"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">Engine</span>&gt;</span><span class="tag">&lt;/<span class="title">Engine</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">Service</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <ul>
 <li>Connector组件<ul>
 <li>接受来自不同方向的请求，完成与请求方的链接建立：Http请求是web项目中最主要的请求。</li>
