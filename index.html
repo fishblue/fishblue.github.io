@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/SpringExt/" style="font-size: 10px;">SpringExt</a> <a href="/tags/autoconfig/" style="font-size: 10px;">autoconfig</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/webx/" style="font-size: 20px;">webx</a> <a href="/tags/webxContextLoaderListener/" style="font-size: 10px;">webxContextLoaderListener</a> <a href="/tags/初始化主线/" style="font-size: 20px;">初始化主线</a> <a href="/tags/消费者/" style="font-size: 10px;">消费者</a> <a href="/tags/源码阅读/" style="font-size: 20px;">源码阅读</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/生产者/" style="font-size: 10px;">生产者</a>
+						<a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/SpringExt/" style="font-size: 10px;">SpringExt</a> <a href="/tags/autoconfig/" style="font-size: 10px;">autoconfig</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/rails/" style="font-size: 10px;">rails</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/webx/" style="font-size: 20px;">webx</a> <a href="/tags/webxContextLoaderListener/" style="font-size: 10px;">webxContextLoaderListener</a> <a href="/tags/初始化主线/" style="font-size: 20px;">初始化主线</a> <a href="/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/tags/消费者/" style="font-size: 10px;">消费者</a> <a href="/tags/源码阅读/" style="font-size: 20px;">源码阅读</a> <a href="/tags/环境配置/" style="font-size: 10px;">环境配置</a> <a href="/tags/生产者/" style="font-size: 10px;">生产者</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
 					</div>
 				</section>
 				
@@ -189,6 +189,77 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-字符串算法之——BK树" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/22/字符串算法之——BK树/" class="article-date">
+  	<time datetime="2015-08-22T08:11:06.000Z" itemprop="datePublished">2015-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/22/字符串算法之——BK树/">字符串算法之——BK树</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言">前言</h1><p>　　有关于字符串的算法有很多应用场景，诸如：搜索，生物工程，基因序列等等。本文所涉及的算法是和字符串搜索相关的。假设有一系列的字符串集合dist[]，需要从中找出任意给定字符串A最相似的TopN字符串。</p>
+<h1 id="基于前缀树的搜索">基于前缀树的搜索</h1><p>　　<strong>前缀树</strong>：trie树常用于搜索提示。如当输入一个网址，可以自动搜索出可能的选择。当没有完全匹配的搜索结果，可以返回前缀最相似的可能。trie树实际上是一个DFA（有穷状态向量机），通常用转移矩阵表示。行表示状态，列表示输入字符，(行, 列)位置表示转移状态。这种方式的查询效率很高，但由于稀疏的现象严重，空间利用效率很低。也可以采用压缩的存储方式即链表来表示状态转移，但由于要线性查询，会造成效率低下。<br>　　<br>　　缺点：只有前缀完全匹配的字符串才能匹配到。</p>
+<h1 id="基于编辑距离树的算法">基于编辑距离树的算法</h1><h2 id="编辑距离（Edit_Distance）">编辑距离（Edit Distance）</h2><p>　　又称Levenshtein距离，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例如将kitten一字转成sitting：</span><br><span class="line">sitten （k→s）</span><br><span class="line">sittin （<span class="keyword">e</span>→i）</span><br><span class="line">sitting （→<span class="keyword">g</span>）</span><br></pre></td></tr></table></figure></p>
+<h2 id="编辑距离树">编辑距离树</h2><h3 id="编辑距离的性质">编辑距离的性质</h3><p>　　假设有串A,B,C,dist[i,j]表示串i和j之间的编辑距离，则有三角不等式：<br>    <code>dist[A,B] + dist[B,C] &gt;= dist[A,C]</code></p>
+<h3 id="建树规则">建树规则</h3><p>　　根据三角不等式，按照如下规则建立编辑距离树，树的数据结构为<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BKTreeNode</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> T data;<span class="comment">//数据节点</span></span><br><span class="line">	<span class="keyword">private</span> HashMap&lt;Integer,BKTreeNode&lt;T&gt;&gt; children;<span class="comment">//孩子节点：key为与父节点的编辑距离，value为子树。</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> distance;<span class="comment">//与父节点的编辑距离</span></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>　　以词典中的任意单词作为根节点，然后依次从dict[]中取单词dict[i]，计算与根节点的编辑距离K，将该节点加入到其子树，并设置边的权重为K。如果存在以边为K的子节点child，则用该单词dict[i]在意该子节点上进行迭代插入。一个单词key插入树过程如下：</p>
+<ul>
+<li>0.初始化BKTree，树根为root，令：iterator &lt;- root</li>
+<li>1.将key插入iterator。如果iterator的data域为空，goto 2。如果iterator的data域不为空，goto 3;</li>
+<li>2.将key置入iterator的data域，并计算key与iterator父节点的编辑距离，设置到iterator的distance域（如果iterator为根节点设置distance为0,则结束。否则goto 4）</li>
+<li>3.计算key和iterator中data的编辑距离k，如果iterator.getChildren().get(k)为空，则创建一个BKTreeNode，将BKTreeNode的data域设置为key,如果不为空，则：iterator&lt;-iterator.getChildren().get(k),并goto 1</li>
+<li>4.结束<h3 id="查找规则">查找规则</h3>　　假设需要返回最大的编辑距离为m的匹配的串，待查询字符串为key，字典为dict[],可以有如下推导：</li>
+<li>计算key以root的编辑距离为d</li>
+<li>key到root子节点的距离最大为m，则可以知道我们需要遍历：|d - m| &lt; distance域的值 &lt; d + m</li>
+<li>将满足条件的节点加入队列，并继续深度遍历。不满足条件的则不再向下搜索（分支限界）。<br>　　问题：当字符串长度小于m的时候，则返回的列表可能不具备参考依据。所以这里，对满足条件的进行相似度判断<br>相似度的定义如下为：<code>|dist-max(a.length()-b.length())|/max(a.length()-b.length())</code>,当相似度达到一定阈值的时候才会被加入到返回列表。</li>
+</ul>
+<h1 id="总结">总结</h1><p>　　编辑距离树的查找是一个基于分支限界的多路搜索算法，并以编辑距离为搜索依据，并以相似度作为返回依据。对于返回的值按照相似度从大到小的顺序排列即可。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符串/">字符串</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-webx框架初始化主线之-Springext" class="article article-type-post" itemscope itemprop="blogPost">
   
