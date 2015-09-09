@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu 14.04下ruby和rails的安装 | Fishblue&#39;s Blog</title>
+  <title>IEEE754浮点数标准 | Fishblue&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
+  <meta name="description" content="IEEE754　　IEEE 754 标准是IEEE浮点数算术标准（IEEE Standard for Floating-Point Arithmetic）的标准编号，等同于国际标准ISO/IEC/IEEE 60559。该标准由美国电气电子工程师学会（IEEE）计算机学会旗下的微处理器标准委员会（Microprocessor Standards Committee, MSC）发布。IEEE 754">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu 14.04下ruby和rails的安装">
-<meta property="og:url" content="https://github.com/fishblue/2014/08/11/Ubuntu-14-04下ruby和rails的安装/index.html">
+<meta property="og:title" content="IEEE754浮点数标准">
+<meta property="og:url" content="https://github.com/fishblue/2015/09/09/IEEE754浮点数标准/index.html">
 <meta property="og:site_name" content="Fishblue's Blog">
-<meta property="og:description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
-<meta property="og:updated_time" content="2015-08-11T02:35:04.891Z">
+<meta property="og:description" content="IEEE754　　IEEE 754 标准是IEEE浮点数算术标准（IEEE Standard for Floating-Point Arithmetic）的标准编号，等同于国际标准ISO/IEC/IEEE 60559。该标准由美国电气电子工程师学会（IEEE）计算机学会旗下的微处理器标准委员会（Microprocessor Standards Committee, MSC）发布。IEEE 754">
+<meta property="og:updated_time" content="2015-09-09T07:10:22.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu 14.04下ruby和rails的安装">
-<meta name="twitter:description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
+<meta name="twitter:title" content="IEEE754浮点数标准">
+<meta name="twitter:description" content="IEEE754　　IEEE 754 标准是IEEE浮点数算术标准（IEEE Standard for Floating-Point Arithmetic）的标准编号，等同于国际标准ISO/IEC/IEEE 60559。该标准由美国电气电子工程师学会（IEEE）计算机学会旗下的微处理器标准委员会（Microprocessor Standards Committee, MSC）发布。IEEE 754">
   
     <link rel="alternative" href="/atom.xml" title="Fishblue&#39;s Blog" type="application/atom+xml">
   
@@ -195,11 +189,11 @@ Ubuntu14.04.kylin">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Ubuntu-14-04下ruby和rails的安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-IEEE754浮点数标准" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/08/11/Ubuntu-14-04下ruby和rails的安装/" class="article-date">
-  	<time datetime="2014-08-11T03:05:41.000Z" itemprop="datePublished">2014-08-11</time>
+      <a href="/2015/09/09/IEEE754浮点数标准/" class="article-date">
+  	<time datetime="2015-09-09T07:08:07.000Z" itemprop="datePublished">2015-09-09</time>
 </a>
     </div>
   
@@ -212,7 +206,7 @@ Ubuntu14.04.kylin">
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu 14.04下ruby和rails的安装
+      IEEE754浮点数标准
     </h1>
   
 
@@ -221,7 +215,7 @@ Ubuntu14.04.kylin">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IEEE754/">IEEE754</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浮点数/">浮点数</a></li></ul>
 	</div>
 
         
@@ -235,49 +229,79 @@ Ubuntu14.04.kylin">
       
             <div id="toc" class="toc-article">
     <div class="toc-title">目录</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面："><span class="toc-text">写在前面：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境介绍："><span class="toc-text">环境介绍：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rbenv和ruby-build的安装："><span class="toc-text">rbenv和ruby-build的安装：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ruby的安装:"><span class="toc-text">ruby的安装:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rails的安装:"><span class="toc-text">rails的安装:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误参考："><span class="toc-text">错误参考：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IEEE754"><span class="toc-text">IEEE754</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浮点数的机器表示"><span class="toc-text">浮点数的机器表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表现形式"><span class="toc-text">表现形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单精度和双精度的754标准布局"><span class="toc-text">单精度和双精度的754标准布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数有效位数"><span class="toc-text">浮点数有效位数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关链接"><span class="toc-text">相关链接</span></a></li></ol>
 </div>
         
-        <h2 id="写在前面：">写在前面：</h2><p>　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。</p>
-<h2 id="环境介绍：">环境介绍：</h2><ul>
-<li>Ubuntu14.04.kylin</li>
-<li>Git安装</li>
-<li>rbenv和ruby-build的GitHub地址：<ul>
-<li><code>git://github.com/sstephenson/rbenv.git .rbenv</code></li>
-<li><code>git://github.com/sstephenson/ruby-build.git</code></li>
+        <h2 id="IEEE754">IEEE754</h2><p>　　<strong>IEEE 754</strong> 标准是IEEE浮点数算术标准（IEEE Standard for Floating-Point Arithmetic）的标准编号，等同于国际标准ISO/IEC/IEEE 60559。该标准由美国电气电子工程师学会（IEEE）计算机学会旗下的微处理器标准委员会（Microprocessor Standards Committee, MSC）发布。IEEE 754 标准规定了计算机程序设计环境中的二进制和十进制的浮点数自述的交换、算术格式以及方法。<br>　　IEEE 754规定了四种表示浮点数值的方式：单精确度（32位）、双精确度（64位）、延伸单精确度（43位以上，很少使用）与延伸双精确度（79位元以上，通常以80位元实做）。只有32位模式有强制要求，其他都是选择性的。大部分编程语言都有提供IEEE格式与算术，但有些将其列为非必要的。例如，IEEE 754问世之前就有的C语言。IEEE754标准包括IEEE算术，但不算作强制要求（C语言的float通常是指IEEE单精确度，而double是指双精确度）。<br><a id="more"></a></p>
+<h2 id="浮点数的机器表示">浮点数的机器表示</h2><h3 id="表现形式">表现形式</h3><ul>
+<li>符号位</li>
+<li>阶码</li>
+<li>尾数</li>
 </ul>
-</li>
-</ul>
-<h2 id="rbenv和ruby-build的安装：">rbenv和ruby-build的安装：</h2><ul>
-<li><code>git clone git:git://github.com/sstephenson/rbenv.git ~/.rbenv</code>  将版本克隆到本地目录</li>
-<li><code>echo &#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li><code>echo &#39;eval &quot;$(rbenv init -)&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li>重启终端让配置生效</li>
-<li><code>git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins</code></li>
-<li><p><code>cd ruby-build ./install.sh</code></p>
-<a id="more"></a>
-<h2 id="ruby的安装:">ruby的安装:</h2></li>
-<li><p><code>rbenv install -l</code> 列表的形式列出哪些可以安装的ruby包</p>
-</li>
-<li><code>rbenv install</code> 安装提供的版本之一。</li>
-<li>rbenv 设置ruby的版本：<code>rbenv versions</code> 查看当前安装的版本，<code>rbenv global ×××</code><blockquote>
-<p>×××为版本已安装的版本号，将其设置为全局的版本。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="rails的安装:">rails的安装:</h2><ul>
-<li>更新软件源,<code>gem source</code></li>
-<li>查看源.<code>gem source -r https://rubygems.org/</code>   </li>
-<li>添加淘宝镜像：<code>gem source -a http://ruby.taobao.org</code></li>
-<li><code>gem install rails</code>安装rails环境.等待结束</li>
-</ul>
-<h2 id="错误参考：">错误参考：</h2><p>　　对应的rbenv和ruby-build git首页的wiki。可能会提示缺少某些依赖包，使用apt-get install安装对应的包即可.</p>
+<p>　　<strong>符号位</strong>，即用来表示浮点数正负的标识。<strong>阶码</strong>即为指数。<strong>尾数</strong>数据科学记数法的前缀表示。并且标准规定基数E为2，具体表现形式如下图：</p>
+<table>
+<thead>
+<tr>
+<th>符号位</th>
+<th>阶码</th>
+<th>尾数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="单精度和双精度的754标准布局">单精度和双精度的754标准布局</h3><p>　　float和double的内存布局如下，</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储位数</th>
+<th></th>
+<th></th>
+<th></th>
+<th>偏移值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>数符</td>
+<td>阶码</td>
+<td>尾数</td>
+<td>总位数</td>
+<td>十六进制</td>
+<td>十进制</td>
+</tr>
+<tr>
+<td>短实数(Single,Float)</td>
+<td>1</td>
+<td>8</td>
+<td>23</td>
+<td>32</td>
+<td>0X7FH</td>
+<td>+127</td>
+</tr>
+<tr>
+<td>长实数(Double)</td>
+<td>1</td>
+<td>11</td>
+<td>52</td>
+<td>64</td>
+<td>0x3FFH</td>
+<td>+1023</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>Could not find a JavaScript runtime. See <a href="https://github.com/sstephenson/execjs">https://github.com/sstephenson/execjs</a> for a list of available runtimes.<ul>
-<li>解决方法:安装nodejs</li>
+<li>float<br>　　以float为例，float的内存布局为：数符1位，阶码8位，尾数23位。可以知道，float指数的取值范围为：-127~+128，即：<br>　　float的取值范围为：[-2^128~2^128],转化为科学记数法为：-3.40E+38 ~ +3.40E+38</li>
+<li>double 同float的计算方法。</li>
 </ul>
-</li>
-</ul>
+<h3 id="浮点数有效位数">浮点数有效位数</h3><p>float：尾数的位数为23，则尾数所能表示的最大值为2^23,即8388608，也就是说float的精度最大为7位数。<br>double：尾数的位数为52，而2^52=4503599627370496，一共16位，即：精度最大为16位。</p>
+<h2 id="相关链接">相关链接</h2><p>百科：<a href="http://baike.baidu.com/link?url=u8UVk97OexU6I_LcbWr_tF04-nHkAcgSbjefqgky2Cnem97UHjOsGmNi4LfWPcWNgqb28b_QfMKP_TzcmnGphtVQFvrMBMwscgfBmaQBMaelbAVmsRS-jDNKMH2dkwrk1SggbTawzfyCTPckbHVPzgmLx6fHcElhVEdk36iaBVe" target="_blank" rel="external">IEEE754标准百度词条</a></p>
 
       
     </div>
@@ -287,15 +311,11 @@ Ubuntu14.04.kylin">
     
 <nav id="article-nav">
   
-    <a href="/2014/12/09/Java-生产者与消费者多线程实现——以及问题解析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Java 生产者与消费者多线程实现——以及问题解析
-        
-      </div>
-    </a>
   
+    <a href="/2015/09/09/github无密码配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo中的github无密码发布配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -322,7 +342,7 @@ Ubuntu14.04.kylin">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Ubuntu-14-04下ruby和rails的安装" data-title="Ubuntu 14.04下ruby和rails的安装" data-url="https://github.com/fishblue/2014/08/11/Ubuntu-14-04下ruby和rails的安装/"></div>
+	<div class="ds-thread" data-thread-key="IEEE754浮点数标准" data-title="IEEE754浮点数标准" data-url="https://github.com/fishblue/2015/09/09/IEEE754浮点数标准/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
