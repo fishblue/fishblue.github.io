@@ -3,24 +3,37 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu 14.04下ruby和rails的安装 | Fishblue&#39;s Blog</title>
+  <title>hexo中的github无密码发布配置 | Fishblue&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
+  <meta name="description" content="[TOC]
+前言　　在配置hexo博客的时候，发布需要使用github的无密码认证方式。在此简单的总结一下。　　准备工作如下：
+
+hexo blog搭建完毕
+本地有git bash
+已配置好git config信息">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu 14.04下ruby和rails的安装">
-<meta property="og:url" content="https://github.com/fishblue/2014/08/11/Ubuntu-14-04下ruby和rails的安装/index.html">
+<meta property="og:title" content="hexo中的github无密码发布配置">
+<meta property="og:url" content="https://github.com/fishblue/2015/09/09/github无密码配置/index.html">
 <meta property="og:site_name" content="Fishblue's Blog">
-<meta property="og:description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
-<meta property="og:updated_time" content="2015-08-11T02:35:04.891Z">
+<meta property="og:description" content="[TOC]
+前言　　在配置hexo博客的时候，发布需要使用github的无密码认证方式。在此简单的总结一下。　　准备工作如下：
+
+hexo blog搭建完毕
+本地有git bash
+已配置好git config信息">
+<meta property="og:image" content="https://github.com/fishblue/img/post_source/201509/userbar-account-settings.png">
+<meta property="og:image" content="https://github.com/fishblue/img/post_source/201509/settings-sidebar-ssh-keys.png">
+<meta property="og:image" content="https://github.com/fishblue/img/post_source/201509/ssh-key-paste.png">
+<meta property="og:image" content="https://github.com/fishblue/img/post_source/201509/ssh-add-key.png">
+<meta property="og:updated_time" content="2015-09-09T02:17:29.445Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu 14.04下ruby和rails的安装">
-<meta name="twitter:description" content="写在前面：　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。
-环境介绍：
-Ubuntu14.04.kylin">
+<meta name="twitter:title" content="hexo中的github无密码发布配置">
+<meta name="twitter:description" content="[TOC]
+前言　　在配置hexo博客的时候，发布需要使用github的无密码认证方式。在此简单的总结一下。　　准备工作如下：
+
+hexo blog搭建完毕
+本地有git bash
+已配置好git config信息">
   
     <link rel="alternative" href="/atom.xml" title="Fishblue&#39;s Blog" type="application/atom+xml">
   
@@ -195,11 +208,11 @@ Ubuntu14.04.kylin">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Ubuntu-14-04下ruby和rails的安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-github无密码配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/08/11/Ubuntu-14-04下ruby和rails的安装/" class="article-date">
-  	<time datetime="2014-08-11T03:05:41.000Z" itemprop="datePublished">2014-08-11</time>
+      <a href="/2015/09/09/github无密码配置/" class="article-date">
+  	<time datetime="2015-09-09T01:22:56.000Z" itemprop="datePublished">2015-09-09</time>
 </a>
     </div>
   
@@ -212,7 +225,7 @@ Ubuntu14.04.kylin">
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu 14.04下ruby和rails的安装
+      hexo中的github无密码发布配置
     </h1>
   
 
@@ -221,7 +234,7 @@ Ubuntu14.04.kylin">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ruby/">ruby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/环境配置/">环境配置</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
 	</div>
 
         
@@ -232,46 +245,47 @@ Ubuntu14.04.kylin">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="写在前面：">写在前面：</h2><p>　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。</p>
-<h2 id="环境介绍：">环境介绍：</h2><ul>
-<li>Ubuntu14.04.kylin</li>
-<li>Git安装</li>
-<li>rbenv和ruby-build的GitHub地址：<ul>
-<li><code>git://github.com/sstephenson/rbenv.git .rbenv</code></li>
-<li><code>git://github.com/sstephenson/ruby-build.git</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="rbenv和ruby-build的安装：">rbenv和ruby-build的安装：</h2><ul>
-<li><code>git clone git:git://github.com/sstephenson/rbenv.git ~/.rbenv</code>  将版本克隆到本地目录</li>
-<li><code>echo &#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li><code>echo &#39;eval &quot;$(rbenv init -)&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li>重启终端让配置生效</li>
-<li><code>git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins</code></li>
-<li><p><code>cd ruby-build ./install.sh</code></p>
-<a id="more"></a>
-<h2 id="ruby的安装:">ruby的安装:</h2></li>
-<li><p><code>rbenv install -l</code> 列表的形式列出哪些可以安装的ruby包</p>
-</li>
-<li><code>rbenv install</code> 安装提供的版本之一。</li>
-<li>rbenv 设置ruby的版本：<code>rbenv versions</code> 查看当前安装的版本，<code>rbenv global ×××</code><blockquote>
-<p>×××为版本已安装的版本号，将其设置为全局的版本。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="rails的安装:">rails的安装:</h2><ul>
-<li>更新软件源,<code>gem source</code></li>
-<li>查看源.<code>gem source -r https://rubygems.org/</code>   </li>
-<li>添加淘宝镜像：<code>gem source -a http://ruby.taobao.org</code></li>
-<li><code>gem install rails</code>安装rails环境.等待结束</li>
-</ul>
-<h2 id="错误参考：">错误参考：</h2><p>　　对应的rbenv和ruby-build git首页的wiki。可能会提示缺少某些依赖包，使用apt-get install安装对应的包即可.</p>
+        <p>[TOC]</p>
+<h2 id="前言">前言</h2><p>　　在配置hexo博客的时候，发布需要使用github的无密码认证方式。在此简单的总结一下。<br>　　准备工作如下：</p>
 <ul>
-<li>Could not find a JavaScript runtime. See <a href="https://github.com/sstephenson/execjs">https://github.com/sstephenson/execjs</a> for a list of available runtimes.<ul>
-<li>解决方法:安装nodejs</li>
-</ul>
+<li>hexo blog搭建完毕</li>
+<li>本地有git bash</li>
+<li>已配置好git config信息<a id="more"></a>
+<h2 id="检查SSH_keys">检查SSH keys</h2>　　首先检查本地是否有sshkey，到对应的文件夹下（一般位于users/.ssh/）,或者打开git bash：<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls -al ~/.ssh&#10;# Lists the files in your .ssh directory, if they exist</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>　　检查目录是否已经存在SSH公钥，默认的key的文件名如下：</p>
+<blockquote>
+<p>id_dsa.pub、id_ecdsa.pub、id_ed25519.pub、id_rsa.pub</p>
+</blockquote>
+<p>　　如果检查到有链接到github的公钥和私钥（如：id_rsa和id_rsa.pub）,跳到 <a href="#添加key到ssh-agent">添加key到ssh-agent</a></p>
+<h2 id="生成新的ssh_key">生成新的ssh key</h2><ul>
+<li><p>打开git bash，执行以下命令。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34;&#10;# Creates a new ssh key, using the provided email as a label&#10;# Generating public/private rsa key pair.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保持默认设置回车继续。此时的命令行如下：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入密码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]&#10;# Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>控制回显key的信息</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.&#10;# Your public key has been saved in /Users/you/.ssh/id_rsa.pub.&#10;# The key fingerprint is:&#10;# 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="添加key到ssh-agent">添加key到ssh-agent</h2><p>　　这一步我们用已生成的ssh key来config我们的ssh-agent。</p>
+<ul>
+<li>确保ssh-agent以启动<br>如果是Git Bash使用如下命令<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background&#10;ssh-agent -s&#10;# Agent pid 59566</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果是其他的终端类型，比如:msysgit，则如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background&#10;eval $(ssh-agent -s)&#10;# Agent pid 59566</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>添加key到ssh-agent<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="添加SSH_key到自己的账户">添加SSH key到自己的账户</h2><p>　　复制公钥到剪切板。<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>clip &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br></pre></td></tr></table></figure></p>
+<p>　　打开github个人的ssh key管理页面：<br>　　<img src="/img/post_source/201509/userbar-account-settings.png" alt="个人设置页面"><br>　　<img src="/img/post_source/201509/settings-sidebar-ssh-keys.png" alt="SSH keys"><br>　　<img src="/img/post_source/201509/ssh-key-paste.png" alt="填写key内容"><br>　　<img src="/img/post_source/201509/ssh-add-key.png" alt="add key"></p>
+<h2 id="相关链接">相关链接</h2><p>github ssh keys:<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">https://help.github.com/articles/generating-ssh-keys/</a></p>
 
       
     </div>
@@ -281,15 +295,11 @@ Ubuntu14.04.kylin">
     
 <nav id="article-nav">
   
-    <a href="/2014/12/09/Java-生产者与消费者多线程实现——以及问题解析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Java 生产者与消费者多线程实现——以及问题解析
-        
-      </div>
-    </a>
   
+    <a href="/2015/09/08/分布式关系型数据库解决方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">分布式关系型数据库解决方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -316,7 +326,7 @@ Ubuntu14.04.kylin">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Ubuntu-14-04下ruby和rails的安装" data-title="Ubuntu 14.04下ruby和rails的安装" data-url="https://github.com/fishblue/2014/08/11/Ubuntu-14-04下ruby和rails的安装/"></div>
+	<div class="ds-thread" data-thread-key="github无密码配置" data-title="hexo中的github无密码发布配置" data-url="https://github.com/fishblue/2015/09/09/github无密码配置/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
