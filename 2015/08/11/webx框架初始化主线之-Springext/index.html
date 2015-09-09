@@ -231,6 +231,12 @@ Springext概念　　springext是基于spring的IOC机制扩展，springext提�
     
     <div class="article-entry" itemprop="articleBody">
       
+      
+            <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Springext概念"><span class="toc-text">Springext概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#<!-more->"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring_IOC容器"><span class="toc-text">Spring IOC容器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanDefinition"><span class="toc-text">BeanDefinition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BeanFactory与ApplicationContext"><span class="toc-text">BeanFactory与ApplicationContext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringExt在Spring_IOC容器的初始化分析"><span class="toc-text">SpringExt在Spring IOC容器的初始化分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#initBeanDefinitionReader"><span class="toc-text">initBeanDefinitionReader</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#loadBeanDefinitions"><span class="toc-text">loadBeanDefinitions</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#爽完就总结下"><span class="toc-text">爽完就总结下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关资料"><span class="toc-text">相关资料</span></a></li></ol>
+</div>
+        
         <p>　　Webx是一套基于Java Servlet API的通用Web框架。Webx致力于提供一套极具扩展性的机制，来满足Web应用不断变化和发展的需求。而SpringExt正是这种扩展性的基石。SpringExt扩展了Spring，在Spring的基础上提供了一种扩展功能的新方法。</p>
 <h2 id="Springext概念">Springext概念</h2><p>　　springext是基于spring的IOC机制扩展，springext提供了众多自己的工具箱，不仅于此，它最大的特点是提供给开发人员一种扩展spring bean管理的设计方案。springext涉及到了两个概念：扩展点和捐献。</p>
 <ul>
