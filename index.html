@@ -223,79 +223,7 @@
 <li>M-S</li>
 <li>集群</li>
 <li>负载均衡</li>
-<li>编程接口</li>
-</ul>
-<h2 id="MyCat">MyCat</h2><h3 id="概述">概述</h3><ul>
-<li>一个可以用于MySQL读写分离和高可用的中间件</li>
-<li>一个模拟为MySQL Server的超级数据库</li>
-<li>一个能平滑扩展支持1000亿大表的分布式数据库系统</li>
-<li>一个可管控多种关系数据库的数据库路由器</li>
-<li>一个平滑从关系数据升级到大数据的应用中间件</li>
-</ul>
-<p>　　虽然云计算时代，传统数据库存在着先天性的弊端，但是NoSQL数据库又无法将其替代。如果传统数据易于扩展，可切分，就可以避免单机（单库）的性能缺陷。<br>　　MyCat的目标就是：低成本地将现有的单机数据库和应用平滑迁移到“云”端，解决数据存储和业务规模迅速增长情况下的数据瓶颈问题。2014年MyCat首次在上海的《中华架构师》大会上对外宣讲引发围观，更多的人参与进来，随后越来越多的项目采用了MyCat。<br>　　总结一下，mycat是新一代的基于淘宝开源数据库中间件Cobar的Mysql分布式集群，大数据处理中间件。当然，发展至今mycat不仅仅只支持mysql，它同样的也支持Sql Server,Oracle,DB2,PostgreSQL等主流数据，同时也支持mongoDB这种新型的NoSQL方式的存储。对于上层用户，mycat始终是一个传统数据，不需要去care具体的分布式细节，上层只需要执行普通的数据库语句即可。</p>
-<h3 id="特点">特点</h3><ul>
-<li>支持读写分离，支持Mysql双主多从，以及一主多从的模式</li>
-<li>支持全局表，数据自动分片到多个节点，用于高效表关联查询</li>
-<li>支持独有的基于E-R关系的分片策略，实现了高效的表关联查询</li>
-<li>自动故障切换，高可用性</li>
-<li>提供高可用性数据分片集群</li>
-<li>支持JDBC连接ORACLE、DB2、SQL Server，将其模拟为MySQL Server使用</li>
-<li>支持Mysql集群，可以作为Proxy使用</li>
-<li>基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠性、优秀的架构和性能</li>
-</ul>
-<h3 id="相关链接">相关链接</h3><p>Mycat文档地址：<a href="https://github.com/MyCATApache/Mycat-doc">https://github.com/MyCATApache/Mycat-doc</a></p>
-<p>Mycat开源地址：<a href="https://github.com/MyCATApache/Mycat-download">https://github.com/MyCATApache/Mycat-download</a></p>
-<h2 id="Atlas">Atlas</h2><h3 id="概述-1">概述</h3><p>　　Atlas是由Qihoo360,Web平台部基础架构团队开发维护的一个基于MySQL协议的数据中间层项目。它在MySQL官方推出的MySQL-Proxy0.8.2版本的基础上，修改了大量bug，添加了很多功能特性。目前该项目在360公司内部得到了广泛应用，很多MySQL业务已经接入了Atlas平台，每天承载的读写请求数达几十亿条。</p>
-<h3 id="特点-1">特点</h3><ul>
-<li>读写分离</li>
-<li>从库负载均衡</li>
-<li>IP过滤</li>
-<li>SQL语句黑白名单</li>
-<li>自动分表</li>
-</ul>
-<p>（与mysql proxy对比）</p>
-<ul>
-<li>用c替换了所有的lua，仅仅在管理接口中保留了lua。</li>
-<li>重写了网络模型和线程模型</li>
-<li>实现了连接池</li>
-<li>优化了锁机制，并且显著提高了性能</li>
-</ul>
-<h3 id="相关链接-1">相关链接</h3><p>文档地址：<a href="https://github.com/Qihoo360/Atlas/wiki">https://github.com/Qihoo360/Atlas/wiki</a></p>
-<p>开源地址：<a href="https://github.com/Qihoo360/Atlas">https://github.com/Qihoo360/Atlas</a></p>
-<h2 id="Cobar">Cobar</h2><h3 id="概述-2">概述</h3><p>　　Cobar是提供关系型数据库（MySQL）分布式服务的中间件，它可以让传统的数据库得到良好的线性扩展，并看上去还是一个数据库,对应用保持透明。</p>
-<ul>
-<li>产品在阿里巴巴稳定运行3年以上。</li>
-<li>接管了3000+个MySQL数据库的schema。</li>
-<li>集群日处理在线SQL请求50亿次以上。</li>
-<li>集群日处理在线数据流量TB级别以上。</li>
-</ul>
-<h3 id="相关链接-2">相关链接</h3><p>开源地址：<a href="https://github.com/alibaba/cobar">https://github.com/alibaba/cobar</a></p>
-<p>帮助文档：<a href="https://github.com/alibaba/cobar/wiki">https://github.com/alibaba/cobar/wiki</a></p>
-<h2 id="Amoeba">Amoeba</h2><h3 id="概述-3">概述</h3><p>　　Amoeba是一个以MySQL为底层数据存储，并对应用提供MySQL协议接口的proxy。它集中地响应应用的请求，依据用户事先设置的规则，将SQL请求发送到特定的数据库上执行。基于此可以实现负载均衡、读写分离、高可用性等需求。与MySQL官方的MySQL Proxy相比，作者强调的是amoeba配置的方便（基于XML的配置文件，用SQLJEP语法书写规则，比基于lua脚本的MySQL Proxy简单）。<br>　　Amoeba for MySQL致力于MySQL的分布式数据库前端代理层，它主要在应用层访问MySQL的时候充当query 路由功能，专注分布式数据库 proxy 开发。座落与Client、DBServer(s)之间。对客户端透明。具有负载均衡、高可用性、Query过滤、读写分离、可路由相关的query到目标数据库、可并发请求多台数据库合并结果。 在Amoeba上面你能够完成多数据源的高可用、负载均衡、数据切片的功能。目前在很多企业的生产线上面使用。</p>
-<h3 id="特点-2">特点</h3><p>Amoeba主要解决以下问题：</p>
-<ul>
-<li>数据切分后复杂数据源整合</li>
-<li>提供数据切分规则并降低数据切分规则给数据库带来的影响</li>
-<li>降低数据库与客户端连接</li>
-<li>读写分离路由</li>
-</ul>
-<h3 id="缺点">缺点</h3><ul>
-<li>目前还不支持事务</li>
-<li>暂时不支持存储过程（近期会支持）</li>
-<li>不适合从amoeba导数据的场景或者对大数据量查询的query并不合适（比如一次请求返回10w以上甚至更多数据的场合）</li>
-<li>暂时不支持分库分表，amoeba目前只做到分数据库实例，每个被切分的节点需要保持库表结构一致。</li>
-</ul>
-<h3 id="相关链接-3">相关链接</h3><p>文档链接：<a href="http://docs.hexnova.com/amoeba/" target="_blank" rel="external">http://docs.hexnova.com/amoeba/</a></p>
-<p>下载地址：<a href="http://sourceforge.net/projects/amoeba/files/latest/download" target="_blank" rel="external">http://sourceforge.net/projects/amoeba/files/latest/download</a></p>
-<h2 id="Mysql_proxy">Mysql proxy</h2><h3 id="概述-4">概述</h3><p>　　MySQL Proxy是一个处于你的client端和MySQLserver端之间的简单程序，它可以监测、分析或改变它们的通信。它使用灵活，没有限制，常见的用途包括：负载平衡，故障、查询分析，查询过滤和修改等等。MySQLProxy就是这么一个中间层代理，简单的说，MySQLProxy就是一个连接池，负责将前台应用的连接请求转发给后台的数据库，并且通过使用lua脚本，可以实现复杂的连接控制和过滤，从而实现读写分离和负载平衡。对于应用来说，MySQLProxy是完全透明的，应用则只需要连接到MySQLProxy的监听端口即可。当然，这样proxy机器可能成为单点失效，但完全可以使用多个proxy机器做为冗余，在应用服务器的连接池配置中配置到多个proxy的连接参数即可。MySQLProxy更强大的一项功能是实现“读写分离”，基本原理是让主数据库处理事务性查询，让从库处理SELECT查询。数据库复制被用来把事务性查询导致的变更同步到集群中的从库。
-　　</p>
-<h3 id="特点-3">特点</h3><ul>
-<li>负载均衡</li>
-<li>读写分离</li>
-<li>不支持表的拆分</li>
-<li>代理层监控</li>
-</ul>
-
+<li>编程接口
       
     </div>
     
@@ -308,6 +236,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/08/分布式关系型数据库解决方案/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
