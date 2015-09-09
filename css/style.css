@@ -199,7 +199,6 @@ a {
   padding: 1em;
   position: fixed;
   right: 2em;
-  max-height: 100px;
 }
 .toc-article .toc-title {
   padding-bottom: 0.8em;
@@ -215,8 +214,8 @@ a {
 }
 #toc li,
 .toc li {
-  padding-left: 1px;
-  margin-top: 1px;
+  margin-top: 3px;
+  list-style-type: none;
 }
 #toc ol {
   margin: 0;
