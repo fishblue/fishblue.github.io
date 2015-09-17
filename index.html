@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/web杂七杂八/" style="font-size: 10px;">web杂七杂八</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/多线程编程/" style="font-size: 10px;">多线程编程</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/框架源码阅读/" style="font-size: 15px;">框架源码阅读</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随笔拾遗/" style="font-size: 20px;">随笔拾遗</a>
+						<a href="/tags/java深入学习/" style="font-size: 10px;">java深入学习</a> <a href="/tags/web杂七杂八/" style="font-size: 10px;">web杂七杂八</a> <a href="/tags/分布式/" style="font-size: 10px;">分布式</a> <a href="/tags/多线程编程/" style="font-size: 10px;">多线程编程</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/框架源码阅读/" style="font-size: 15px;">框架源码阅读</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随笔拾遗/" style="font-size: 20px;">随笔拾遗</a>
 					</div>
 				</section>
 				
@@ -193,6 +193,66 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-java-annotation实现原理剖析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/17/java-annotation实现原理剖析/" class="article-date">
+  	<time datetime="2015-09-17T03:58:28.000Z" itemprop="datePublished">2015-09-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/17/java-annotation实现原理剖析/">java annotation实现原理剖析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+            <div id="toc" class="toc-article">
+    <div class="toc-title">目录</div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#占位符"><span class="toc-text">占位符</span></a></li></ol>
+</div>
+        
+        <h2 id="占位符">占位符</h2>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java深入学习/">java深入学习</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-小米电话面试算法题" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -754,80 +814,10 @@
 
 
   
-    <article id="post-Ubuntu-14-04下ruby和rails的安装" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2014/08/11/Ubuntu-14-04下ruby和rails的安装/" class="article-date">
-  	<time datetime="2014-08-11T03:05:41.000Z" itemprop="datePublished">2014-08-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/11/Ubuntu-14-04下ruby和rails的安装/">Ubuntu 14.04下ruby和rails的安装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="写在前面：">写在前面：</h2><p>　　ruby的安装以及版本的管理工具有很多：如rvm，rbenv，ry，rbfu等，具体工具的优点以及其优点，各位看官可以自行google。本文用的ruby版本管理工具是rbenv，rbenv是一个轻量级的ruby版本管理器。通过rbenv以及ruby-build插件二者项目结合可以快速的在linux下搭建ruby以及rails安装环境。</p>
-<h2 id="环境介绍：">环境介绍：</h2><ul>
-<li>Ubuntu14.04.kylin</li>
-<li>Git安装</li>
-<li>rbenv和ruby-build的GitHub地址：<ul>
-<li><code>git://github.com/sstephenson/rbenv.git .rbenv</code></li>
-<li><code>git://github.com/sstephenson/ruby-build.git</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="rbenv和ruby-build的安装：">rbenv和ruby-build的安装：</h2><ul>
-<li><code>git clone git:git://github.com/sstephenson/rbenv.git ~/.rbenv</code>  将版本克隆到本地目录</li>
-<li><code>echo &#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li><code>echo &#39;eval &quot;$(rbenv init -)&quot;&#39; &gt;&gt; ~/.bashrc</code></li>
-<li>重启终端让配置生效</li>
-<li><code>git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins</code></li>
-<li><p><code>cd ruby-build ./install.sh</code></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔拾遗/">随笔拾遗</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2014/08/11/Ubuntu-14-04下ruby和rails的安装/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
